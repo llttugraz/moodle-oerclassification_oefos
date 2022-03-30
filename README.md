@@ -1,4 +1,4 @@
-# oerclassification_oefos
+# moodle-oerclassification_oefos
 
 Subplugin for [local_oer](https://github.com/llttugraz/moodle-local_oer) plugin
 
