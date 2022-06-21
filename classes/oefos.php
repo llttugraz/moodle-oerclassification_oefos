@@ -40,8 +40,8 @@ class oefos {
         global $CFG;
         $oefos       = [];
         $path        = '/local/oer/classification/oefos/data/';
-        $filenameen = 'OEFOS2012_EN_CTI_20211111_154228_utf8.txt';
-        $filenamede = 'OEFOS2012_DE_CTI_20211111_154218_utf8.txt';
+        $filenameen = 'OEFOS2012_EN_CTI_20211111_154228_utf8.csv';
+        $filenamede = 'OEFOS2012_DE_CTI_20211111_154218_utf8.csv';
         $filename    = current_language() == 'de' ? $filenamede : $filenameen;
         if (($file = fopen($CFG->dirroot . $path . $filename, 'r')) !== false) {
             while (($data = fgetcsv($file, 1000, ";")) !== false) {
