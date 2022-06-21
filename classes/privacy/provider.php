@@ -15,19 +15,29 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Graz University of Technology specific subplugin for Open Educational Resources Plugin.
+ * Open Educational Resources Plugin
+ *
+ * Helper class to prepare select field data
  *
  * @package    oerclassification_oefos
  * @author     Christian Ortner <christian.ortner@tugraz.at>
- * @copyright  2022 Educational Technologies, Graz, University of Technology
+ * @copyright  2017-2022 Educational Technologies, Graz, University of Technology
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die();
+namespace oerclassification_oefos\privacy;
 
-$string['pluginname']       = 'OER Classification ÖFOS Data collection';
-$string['selectname']       = 'ÖFOS classification';
-$string['selectname_help']  = 'Classification based on the ÖFOS dataset. You can find more information ' .
-                              'about it here: ' .
-                              '<a target="_blank" href="https://www.data.gv.at/katalog/dataset/stat_ofos-2012">ÖFOS Link.</a>';
-$string['privacy:metadata'] = 'This plugin does not store any personal data.';
+/**
+ * Class provider
+ */
+class provider implements \core_privacy\local\metadata\null_provider {
+
+    /**
+     * Null provider, does not store any data.
+     *
+     * @return  string
+     */
+    public static function get_reason() : string {
+        return 'privacy:metadata';
+    }
+}
