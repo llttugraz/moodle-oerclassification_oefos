@@ -25,8 +25,9 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['pluginname']      = 'OER Classification ÖFOS Data collection';
-$string['selectname']      = 'ÖFOS classification';
-$string['selectname_help'] = 'Classification based on the ÖFOS dataset. You can find more information ' .
-                             'about it here: ' .
-                             '<a target="_blank" href="https://www.data.gv.at/katalog/dataset/stat_ofos-2012">ÖFOS Link.</a>';
+$string['pluginname']       = 'OER Classification ÖFOS Data collection';
+$string['selectname']       = 'ÖFOS classification';
+$string['selectname_help']  = 'Classification based on the ÖFOS dataset. You can find more information ' .
+                              'about it here: ' .
+                              '<a target="_blank" href="https://www.data.gv.at/katalog/dataset/stat_ofos-2012">ÖFOS Link.</a>';
+$string['privacy:metadata'] = 'This plugin does not store any personal data.';

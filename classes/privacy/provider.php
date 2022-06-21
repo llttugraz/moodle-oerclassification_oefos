@@ -25,33 +25,19 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-namespace oerclassification_oefos;
+namespace oerclassification_oefos\privacy;
 
 /**
- * Class oefos
+ * Class provider
  */
-class oefos {
+class provider implements \core_privacy\local\metadata\null_provider {
+
     /**
-     * Load oefos information from file
+     * Null provider, does not store any data.
      *
-     * @return array
+     * @return  string
      */
-    public static function load_oefos() {
-        global $CFG;
-        $oefos       = [];
-        $path        = '/local/oer/classification/oefos/data/';
-        $filenameen = 'OEFOS2012_EN_CTI_20211111_154228_utf8.csv';
-        $filenamede = 'OEFOS2012_DE_CTI_20211111_154218_utf8.csv';
-        $filename    = current_language() == 'de' ? $filenamede : $filenameen;
-        if (($file = fopen($CFG->dirroot . $path . $filename, 'r')) !== false) {
-            while (($data = fgetcsv($file, 1000, ";")) !== false) {
-                if ($data[0] == 'Ebene') {
-                    continue;
-                } //skip first line
-                $oefos[] = $data;
-            }
-            fclose($file);
-        }
-        return $oefos;
+    public static function get_reason() : string {
+        return 'privacy:metadata';
     }
 }
