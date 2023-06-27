@@ -26,7 +26,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->version      = 2023062700;
-$plugin->requires     = 2021051700; // Moodle 3.11.0
+$plugin->requires     = 2021051700; // Moodle 3.11.0.
 $plugin->component    = 'oerclassification_oefos';
 $plugin->release      = 'v1.1.0-RC1';
 $plugin->dependencies = [
