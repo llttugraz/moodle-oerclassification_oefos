@@ -19,16 +19,16 @@
  *
  * @package    oerclassification_oefos
  * @author     Christian Ortner <christian.ortner@tugraz.at>
- * @copyright  2021 Educational Technologies, Graz, University of Technology
+ * @copyright  2021-2023 Educational Technologies, Graz, University of Technology
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version      = 2021121000;
-$plugin->requires     = 2020061500;
+$plugin->version      = 2023062700;
+$plugin->requires     = 2021051700; // Moodle 3.11.0
 $plugin->component    = 'oerclassification_oefos';
-$plugin->release      = 'v1.0.1';
+$plugin->release      = 'v1.1.0-RC1';
 $plugin->dependencies = [
         'local_oer'                    => 2022012100,
 ];
