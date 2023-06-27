@@ -36,6 +36,8 @@ require_once(__DIR__ . '/../../../tests/helper/fromform.php');
 
 /**
  * Class fileinfoform_test
+ *
+ * @coversDefaultClass \oerclassification_oefos\oefos
  */
 class fileinfoform_test extends \advanced_testcase {
     /**
@@ -44,6 +46,12 @@ class fileinfoform_test extends \advanced_testcase {
      * Test when the oefos plugin is enabled how the classification field is stored and modified.
      *
      * @return void
+     * @throws \coding_exception
+     * @throws \dml_exception
+     * @throws \moodle_exception
+     * @covers \oerclassification_oefos\plugin::get_select_data
+     * @covers \oerclassification_oefos\plugin::url_to_external_resource
+     * @covers \oerclassification_oefos\oefos::load_oefos
      */
     public function test_update_metadata() {
         $this->resetAfterTest();
