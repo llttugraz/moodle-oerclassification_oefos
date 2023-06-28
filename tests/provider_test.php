@@ -15,20 +15,32 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Graz University of Technology specific subplugin for Open Educational Resources Plugin.
+ * Open Educational Resources Plugin
  *
  * @package    oerclassification_oefos
  * @author     Christian Ortner <christian.ortner@tugraz.at>
- * @copyright  2021-2023 Educational Technologies, Graz, University of Technology
+ * @copyright  2022 Educational Technologies, Graz, University of Technology
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die();
+namespace oerclassification_oefos;
 
-$plugin->version = 2023062800;
-$plugin->requires = 2021051700;
-$plugin->component = 'oerclassification_oefos';
-$plugin->release = 'v1.1.0';
-$plugin->dependencies = [
-        'local_oer' => 2022012100,
-];
+use oerclassification_oefos\privacy\provider;
+
+/**
+ * Class provider_test
+ *
+ * @coversDefaultClass \oerclassification_oefos\privacy\provider
+ */
+class provider_test extends \advanced_testcase {
+    /**
+     * Test string of language identifier.
+     *
+     * @return void
+     * @covers ::get_reason
+     */
+    public function test_get_reason() {
+        $this->resetAfterTest();
+        $this->assertEquals('privacy:metadata', provider::get_reason());
+    }
+}
