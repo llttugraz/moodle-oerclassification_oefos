@@ -25,10 +25,10 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version      = 2023062700;
-$plugin->requires     = 2021051700; // Moodle 3.11.0.
-$plugin->component    = 'oerclassification_oefos';
-$plugin->release      = 'v1.1.0-RC1';
+$plugin->version = 2023062800;
+$plugin->requires = 2021051700;
+$plugin->component = 'oerclassification_oefos';
+$plugin->release = 'v1.1.0';
 $plugin->dependencies = [
-        'local_oer'                    => 2022012100,
+        'local_oer' => 2022012100,
 ];
