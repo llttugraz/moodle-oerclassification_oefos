@@ -92,7 +92,7 @@ No accessibility status yet. TODO.
 
 ## License
 
-This plugin is licensed under the [GNU GPL v3](http://www.gnu.org/licenses).
+This plugin is licensed under the [GNU GPL v3](https://www.gnu.org/licenses/gpl-3.0.html).
 
 ## Contributors
 
