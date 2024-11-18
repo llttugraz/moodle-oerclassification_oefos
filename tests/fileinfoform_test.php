@@ -27,6 +27,7 @@ namespace oerclassification_oefos;
 
 use local_oer\forms\fileinfo_form;
 use local_oer\fromform;
+use local_oer\identifier;
 use local_oer\testcourse;
 
 defined('MOODLE_INTERNAL') || die();
@@ -39,7 +40,7 @@ require_once(__DIR__ . '/../../../tests/helper/fromform.php');
  *
  * @coversDefaultClass \oerclassification_oefos\oefos
  */
-class fileinfoform_test extends \advanced_testcase {
+final class fileinfoform_test extends \advanced_testcase {
     /**
      * Extension for the update_metadata test of the base plugin.
      *
@@ -53,7 +54,7 @@ class fileinfoform_test extends \advanced_testcase {
      * @covers \oerclassification_oefos\plugin::url_to_external_resource
      * @covers \oerclassification_oefos\oefos::load_oefos
      */
-    public function test_update_metadata() {
+    public function test_update_metadata(): void {
         $this->resetAfterTest();
         $this->setAdminUser();
         global $DB;
@@ -61,23 +62,22 @@ class fileinfoform_test extends \advanced_testcase {
         \core_plugin_manager::reset_caches();
         $testcourse  = new testcourse();
         $course      = $testcourse->generate_testcourse($this->getDataGenerator());
-        $contenthash = $testcourse->get_contenthash_of_first_found_file($course);
-        $this->assertNotNull($contenthash);
-
-        $record = $DB->get_record('local_oer_files', ['courseid' => $course->id, 'contenthash' => $contenthash]);
+        $identifier = $testcourse->get_identifier_of_first_found_file($course);
+        $this->assertNotNull($identifier);
+        $record = $DB->get_record('local_oer_elements', ['courseid' => $course->id, 'identifier' => $identifier]);
         $this->assertFalse($record, 'No files record exists yet.');
 
-        $fromform = fromform::fileinfoform_submit($course->id, $contenthash, 'Unittest',
+        $fromform = fromform::fileinfoform_submit($course->id, $identifier, 'Unittest',
                                                   'Test update metadata', 1,
                                                   'cc', 'en', 1, [], 0, 0);
         // When no classification is selected. The moodle autocomplete formfield returns this string.
         // This string should not be stored in database. The value for this classification is then empty.
         // As for this test only one classification subplugin is enabled the result should be null.
         $fromform['oerclassification_oefos'] = "_qf__force_multiselect_submission";
-        $form                                = new fileinfo_form(null, ['courseid' => $course->id, 'contenthash' => $contenthash]);
+        $form                                = new fileinfo_form(null, ['courseid' => $course->id, 'identifier' => $identifier]);
         $form->update_metadata($fromform);
 
-        $record = $DB->get_record('local_oer_files', ['courseid' => $course->id, 'contenthash' => $contenthash]);
+        $record = $DB->get_record('local_oer_elements', ['courseid' => $course->id, 'identifier' => $identifier]);
         $this->assertEquals(null, $record->classification);
     }
 }

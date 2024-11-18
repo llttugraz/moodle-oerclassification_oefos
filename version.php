@@ -32,3 +32,4 @@ $plugin->release = 'v1.1.0';
 $plugin->dependencies = [
         'local_oer' => 2022012100,
 ];
+$plugin->supported = [401, 405];
