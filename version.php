@@ -28,7 +28,7 @@ defined('MOODLE_INTERNAL') || die();
 $plugin->version = 2023062800;
 $plugin->requires = 2021051700;
 $plugin->component = 'oerclassification_oefos';
-$plugin->release = 'v1.1.0';
+$plugin->release = 'v1.1.1';
 $plugin->dependencies = [
         'local_oer' => 2022012100,
 ];
